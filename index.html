@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    body {
+      background-color: cream;
+      font-family: Times New Roman;
+    }
+    h1 {
+      padding-left: 33%;
+      padding-top: 0%;
+      marin-left: 10%;
+      margin-right: 10%;
+      margin-top: 5%;
+      margin-bottom: 3%;
+      font-size: 300%%;
+      
+    }
+    p {
+      padding-left: 15%;
+      margin-left: 10%;
+      margin-right: 10%;
+      font-size: 120%;
+      
+    }
+    button {
+      padding-left: 0%;
+      margin-left: 10%;
+      margin-right: 0%;
+    }
+    input {
+      padding-left: 15%;
+      margin-left: 30%;
+      margin-right: 0%;
+    }
+  </style>
+    
+</head>
+
+<body>
+  <main>
+  <h1>What Book Should You Read Next?</h1>
+
+  <img src="book-image.jpg" alt= "books" style= "padding-left: 27%; width: 50%; padding-top: 3% height: 20%">
+    
+  <p>Based off of your chosen genre, here are come recommendations for books you might be interested in.</p>
+
+    <p>Input your favorite book genre. Examples of genre's include thriller, mystery, science fiction, fantasy, and romance.</p>
+    <input id="genre" value=""/>
+    <button onclick="bookRecFunction()"> Get Book Recommendations</button>
+    <p id="book"></p>
+    
+  <script src="script.js"></script>
+    <script>
+      var thriller = ["The Silent Patient by Alex Michaelides", "The Girl With The Dragon Tattoo by Stieg Larsson", "The Guest List by Lucy Foley", "Verity by Colleen Hoover", "Gone Girl by Gillian Flynn"];
+      var mystery = ["The Maid by Nita Prose", "Devil in a Blue Dress by Walter Mosley", "The Chuckoo's Calling by Robert Gailbraith", "The Girl in the Ice by Robert Bryndza", "The Lying Game by Sara Shepard"];
+      var scienceFiction = ["The Ballad of Songbirds and Snakes by Suzanne Collins", "Project Hail Mary by Nnedi Okorafor", "The Apollo Murders by Chris Hadfield", "Ready Player One by Ernest Cline", "Dune by Frank Herbert"];
+      var fantasy = ["From Blood and Ash by Jennifer Armentrout", "A Court of Thorns and Roses by Sarah J. Maas", "An Ember in the Ashes by Sabaa Tahir", "The Night Circus by Erin Morgenstern", "Proven Guilty by Jim Butcher"];
+      var romance = ["The Kiss Quotient by Helen Hoang", "Reminders of Him by Colleen Hoover", "Seven Days in June by Tia Williams", "One Italian Summer by Rebecca Serie", "The Selection by Kiera Cass"];
+function bookRecFunction() {
+  var recommendation;
+  var genre = document.getElementById('genre').value;
+  if (genre == 'thriller') {
+    recommendation = thriller;
+  } else if (genre == 'mystery') {
+    recommendation = mystery;
+  } else if (genre == 'science fiction') {
+    recommendation = scienceFiction;
+  } else if (genre == 'fantasy') {
+    recommendation = fantasy;
+  } else if (genre == 'romance') {
+    recommendation = romance;
+  }else {
+    recommendation = "No recommendations available"
+  }
+  let output = '';
+  for(let i = 0; i < recommendation.length; i++) {
+    if (i <= recommendation.length) {
+      output += recommendation[i] + '<br>';
+    } else {
+      output += '${recommendation[i]}';
+    }
+    }
+  document.getElementById('book').innerHTML = output;
+}
+    </script>
+  </main>
+</body>
+
+</html>
